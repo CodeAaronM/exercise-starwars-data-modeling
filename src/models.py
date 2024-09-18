@@ -48,8 +48,8 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
 
-class User_character(Base):
-    __tablename__ = 'User_character'
+class Favorite_character(Base):
+    __tablename__ = 'Favorite_character'
     # Here we define columns for the table User
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
@@ -58,8 +58,8 @@ class User_character(Base):
     Character_id = Column(Integer, ForeignKey('Character.id'))
     Character = relationship(Character)
 
-class User_Planet(Base):
-    __tablename__ = 'User_Planet'
+class Favorite_Planet(Base):
+    __tablename__ = 'Favorite_Planet'
     # Here we define columns for the table User
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
@@ -68,23 +68,13 @@ class User_Planet(Base):
     Planet_id = Column(Integer, ForeignKey('Planet.id'))
     Planet = relationship(Planet)
 
-class User_Ship(Base):
-    __tablename__ = 'User_Ship'
+class Favorite_Ship(Base):
+    __tablename__ = 'Favorite_Ship'
     # Here we define columns for the table User
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     User_id = Column(Integer, ForeignKey('User.id'))
     User = relationship(User)
-    Ship_id = Column(Integer, ForeignKey('Ship.id'))
-    Ship = relationship(Ship)
-
-class Character_Ship(Base):
-    __tablename__ = 'Character_Ship'
-    # Here we define columns for the table Character
-    # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, primary_key=True)
-    Character_id = Column(Integer, ForeignKey('Character.id'))
-    Character = relationship(Character)
     Ship_id = Column(Integer, ForeignKey('Ship.id'))
     Ship = relationship(Ship)
 
